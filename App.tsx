@@ -3,12 +3,24 @@ import { Button, StyleSheet, Text, TextInput, View } from 'react-native'; /* (В
 
 export default function App() {
   return (
-    <View style={styles.container}> {/* (аналог div) */}
+    <View style={styles.container}> {/* (аналог div, имеет flex/column по-умолчанию) */}
       <Text style={{color: "blue"}}>Open up App.tsx to start working on your app!</Text> {/* (аналог p, все текстовые вставки должны быть обернуты в Text) */}
       <StatusBar style="auto" /> 
       <TextInput value='привет!'/> {/* (инпут) */}
       <Button title="It's button"/> {/* (кнопка - самозакрывающийся элемент) */}
+      <View style={{ /* (имеет flex/column по-умолчанию, вцелом работает как обычный флекс) */
+        backgroundColor: "yellow",
+        alignItems: "flex-end",
+        justifyContent: "space-between",
+        height: 500,
+        flexDirection: "row"
+      }}>
+        <View style={{backgroundColor: "tomato", width: 100, height: 100}}></View>
+        <View style={{backgroundColor: "purple", width: 100, height: 100, alignSelf: "flex-end"}}></View>
+        <View style={{backgroundColor: "green", width: 100, height: 100}}></View>
+      </View>
     </View>
+   
   );
 }
 
