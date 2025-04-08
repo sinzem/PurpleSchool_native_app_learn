@@ -1,42 +1,110 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native'; /* (Все элементы должны быть импортированы) */
+import { Button, Dimensions, Image, StyleSheet, Text, TextInput, View } from 'react-native'; /* (Все элементы должны быть импортированы) */
 
 export default function App() {
+
+  const width = Dimensions.get("window").width; /* (обьект Dimensions - импортируем из react - позволяет работать с окном устройства(window или screen), в д.с получаем ширину окна, удобно для указания размеров в стилях, например width / 2 - 5  - укажет половину окна + 5px из gap) */
+
   return (
-    <View style={styles.container}> {/* (аналог div, имеет flex/column по-умолчанию) */}
-      <Text style={{color: "blue"}}>Open up App.tsx to start working on your app!</Text> {/* (аналог p, все текстовые вставки должны быть обернуты в Text) */}
-      <StatusBar style="auto" /> 
-      <TextInput value='привет!'/> {/* (инпут) */}
-      <Button title="It's button"/> {/* (кнопка - самозакрывающийся элемент) */}
-      <View style={{ /* (имеет flex/column по-умолчанию, вцелом работает как обычный флекс) */
-        backgroundColor: "yellow",
-        alignItems: "flex-end",
-        justifyContent: "space-between",
-        height: 500,
-        flexDirection: "row"
-      }}>
-        <View style={{backgroundColor: "tomato", width: 100, height: 100}}></View>
-        <View style={{backgroundColor: "purple", width: 100, height: 100, alignSelf: "flex-end"}}></View>
-        <View style={{backgroundColor: "green", width: 100, height: 100}}></View>
-      </View>
+    // <View style={styles.container}> {/* (аналог div, имеет flex/column по-умолчанию) */}
+    //   <Text style={{color: "blue"}}>Open up App.tsx to start working on your app!</Text> {/* (аналог p, все текстовые вставки должны быть обернуты в Text) */}
+    //   <StatusBar style="auto" /> 
+    //   <TextInput value='привет!'/> {/* (инпут) */}
+    //   <Button title="It's button"/> {/* (кнопка - самозакрывающийся элемент) */}
+    //   <View style={{ /* (имеет flex/column по-умолчанию, вцелом работает как обычный флекс) */
+    //     backgroundColor: "yellow",
+    //     alignItems: "flex-end",
+    //     justifyContent: "space-between",
+    //     height: 500,
+    //     flexDirection: "row",
+    //     flexWrap: "wrap",
+    //     alignContent: "center",
+    //     gap: 10
+    //   }}>
+    //     <View style={{backgroundColor: "tomato", width: "50%", height: 100}}></View>
+    //     <View style={{backgroundColor: "purple", width: "50%", height: 100, alignSelf: "flex-end"}}></View>
+    //     <View style={{backgroundColor: "green", width: "50%", height: 100}}></View>
+    //   </View>
+    // </View>
+
+    // -----------------------------------------------------------
+    <View style={styles.container}>
+        <View style={styles.content}>
+          <View style={styles.logowrap}>
+            <Image 
+              style={styles.logo}
+              resizeMode='contain'
+              source={require("./assets/tree-from-wectors-market.png")}
+            />
+            <Text style={styles.logotext}>PurpleSchool</Text>
+          </View>
+          <View style={styles.form}>
+            <TextInput style={styles.input}/>
+            <TextInput style={styles.input}/>
+            <Button title='Войти'/>
+          </View>
+          <Text>Восстановить пароль</Text>
+        </View>
     </View>
    
   );
 }
 
-/* (CSS отсутствует вообще, вместо него можно использовать инлайн стили или лучше использовать обьекты со стилями, созданные через StyleSheet(можно и без него, он просто выводит подсказки стилей при вводе), сами стили очень похожи на CSS, но есть и отличия, например гридов нет вообще) */
+// /* (CSS отсутствует вообще, вместо него можно использовать инлайн стили или лучше использовать обьекты со стилями, созданные через StyleSheet(можно и без него, он просто выводит подсказки стилей при вводе), сами стили очень похожи на CSS, но есть и отличия, например гридов нет вообще) */
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+//   textStyle: {
+//     color: "blue",
+//     fontSize: 24, /* (пиксели не ставим) */
+//     borderWidth: 1, /* (составные стили(значения через пробел) не работают, описываем каждый стиль отдельно) */
+//     borderColor: "blue",
+//     margin: 5,
+//   }
+// });
+
+// ------------------------------------------------------------
+
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    padding: 55,
+    backgroundColor: "#16171D",
+  },
+  logowrap: {
+    flexDirection: 'row',
+    gap: 20,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  logo: {
+    width: 30,
+  },
+  logotext: {
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "white",
+  },
+  content: {
+    alignItems: "center",
+    gap: 50,
+  },
+  form: {
+    alignSelf: "stretch",
+    gap: 16,
+  },
+  input: {
+    backgroundColor: "#2E2D3D",
   },
   textStyle: {
     color: "blue",
-    fontSize: 24, /* (пиксели не ставим) */
-    borderWidth: 1, /* (составные стили(значения через пробел) не работают, описываем каждый стиль отдельно) */
+    fontSize: 24,
+    borderWidth: 1,
     borderColor: "blue",
-    margin: 5,
   }
-});
+})
