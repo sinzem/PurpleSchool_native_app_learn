@@ -1,5 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, Dimensions, Image, StyleSheet, Text, TextInput, View } from 'react-native'; /* (Все элементы должны быть импортированы) */
+import { Input } from './shared/input/Input';
+import { Colors, Gaps } from './shared/tokens';
 
 export default function App() {
 
@@ -39,8 +41,8 @@ export default function App() {
             <Text style={styles.logotext}>PurpleSchool</Text>
           </View>
           <View style={styles.form}>
-            <TextInput style={styles.input}/>
-            <TextInput style={styles.input}/>
+            <Input placeholder='Email'/>
+            <Input placeholder='Password'/>
             <Button title='Войти'/>
           </View>
           <Text>Восстановить пароль</Text>
@@ -74,11 +76,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flex: 1,
     padding: 55,
-    backgroundColor: "#16171D",
+    backgroundColor: Colors.black,
   },
   logowrap: {
     flexDirection: 'row',
-    gap: 20,
+    gap: Gaps.g16,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -92,14 +94,11 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: "center",
-    gap: 50,
+    gap: Gaps.g50,
   },
   form: {
     alignSelf: "stretch",
-    gap: 16,
-  },
-  input: {
-    backgroundColor: "#2E2D3D",
+    gap: Gaps.g16,
   },
   textStyle: {
     color: "blue",
