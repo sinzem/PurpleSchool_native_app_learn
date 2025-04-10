@@ -2,7 +2,7 @@ import { StyleSheet, TextInput, TextInputProps } from "react-native";
 import { Colors, Radius } from "../tokens";
 
 
-export function Input(props: TextInputProps) {
+export function Input(props: TextInputProps & {isPassword?: boolean}) {
     
     return (
         <TextInput 
