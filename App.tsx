@@ -9,29 +9,7 @@ export default function App() {
   const width = Dimensions.get("window").width; /* (обьект Dimensions - импортируем из react - позволяет работать с окном устройства(window или screen), в д.с получаем ширину окна, удобно для указания размеров в стилях, например width / 2 - 5  - укажет половину окна + 5px из gap) */
 
   return (
-    // <View style={styles.container}> {/* (аналог div, имеет flex/column по-умолчанию) */}
-    //   <Text style={{color: "blue"}}>Open up App.tsx to start working on your app!</Text> {/* (аналог p, все текстовые вставки должны быть обернуты в Text) */}
-    //   <StatusBar style="auto" /> 
-    //   <TextInput value='привет!'/> {/* (инпут) */}
-    //   <Button title="It's button"/> {/* (кнопка - самозакрывающийся элемент) */}
-    //   <View style={{ /* (имеет flex/column по-умолчанию, вцелом работает как обычный флекс) */
-    //     backgroundColor: "yellow",
-    //     alignItems: "flex-end",
-    //     justifyContent: "space-between",
-    //     height: 500,
-    //     flexDirection: "row",
-    //     flexWrap: "wrap",
-    //     alignContent: "center",
-    //     gap: 10
-    //   }}>
-    //     <View style={{backgroundColor: "tomato", width: "50%", height: 100}}></View>
-    //     <View style={{backgroundColor: "purple", width: "50%", height: 100, alignSelf: "flex-end"}}></View>
-    //     <View style={{backgroundColor: "green", width: "50%", height: 100}}></View>
-    //   </View>
-    // </View>
-
-    // -----------------------------------------------------------
-    <View style={styles.container}>
+    <View style={styles.container}> {/* (аналог div, имеет flex/column по-умолчанию) */}
         <View style={styles.content}>
           <View style={styles.logowrap}>
             <Image 
@@ -44,9 +22,9 @@ export default function App() {
           <View style={styles.form}>
             <Input placeholder='Email'/>
             <Input isPassword placeholder='Password'/>
-            <Button text='Войти'/>
+            <Button text='Войти'/> {/* (кнопка - самозакрывающийся элемент) */}
           </View>
-          <Text>Восстановить пароль</Text>
+          <Text>Восстановить пароль</Text> {/* (аналог p, все текстовые вставки должны быть обернуты в Text) */}
         </View>
     </View>
    
