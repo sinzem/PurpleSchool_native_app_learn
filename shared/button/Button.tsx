@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
     },
     text: {
         color: Colors.white,
-        fontSize: Font.f18,
+        fontSize: Font.f24,
     },
 })

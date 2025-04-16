@@ -20,4 +20,5 @@ export const Radius = {
 export const Font = {
     f16: 16,
     f18: 18,
+    f24: 24,
 }
